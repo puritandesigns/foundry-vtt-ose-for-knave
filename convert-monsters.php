@@ -38,7 +38,7 @@ function convertToKnave(array $monster): array
 {
     $one_to_one_map = ['_id', 'name', 'img', 'sort', 'flags', 'permission', 'token'];
 
-    $converted = [];
+    $converted = ['type' => 'character'];
 
     foreach ($one_to_one_map as $key) {
         $converted[$key] = $monster[$key];
