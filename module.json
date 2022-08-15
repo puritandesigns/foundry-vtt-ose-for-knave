@@ -1,0 +1,130 @@
+{
+  "name": "ose-content",
+  "title": "Old School Essentials OGL Content",
+  "description": "Open Game Licensed content from Necrotic Gnome’s Old School Essentials.",
+  "version": "0.5.1",
+  "systems": ["ose", "knave"],
+  "author": ["U~man", "Tuirgin"],
+  "scripts": [],
+  "esmodules": [],
+  "styles": [],
+  "packs": [
+    {
+      "name": "equipment-adventuring-gear",
+      "label": "Equipment: Adventuring Gear",
+      "package": "ose-content",
+      "path": "packs/equipment-adventuring-gear.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-ammunition",
+      "label": "Equipment: Ammunition",
+      "package": "ose-content",
+      "path": "packs/equipment-ammunition.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-armour",
+      "label": "Equipment: Armour",
+      "package": "ose-content",
+      "path": "packs/equipment-armour.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-coins",
+      "label": "Equipment: Coins",
+      "package": "ose-content",
+      "path": "packs/equipment-coins.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-weapons",
+      "label": "Equipment: Weapons",
+      "package": "ose-content",
+      "path": "packs/equipment-weapons.db",
+      "entity": "Item"
+    },
+    {
+      "name": "monsters",
+      "label": "Monsters",
+      "package": "ose-content",
+      "path": "packs/monsters.db",
+      "entity": "Actor"
+    },
+    {
+      "name": "tables-encounters",
+      "label": "Tables: Encounters",
+      "package": "ose-content",
+      "path": "packs/tables-encounters.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "tables-items",
+      "label": "Tables: Items",
+      "package": "ose-content",
+      "path": "packs/tables-items.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "treasures",
+      "label": "Treasure Tables",
+      "package": "ose-content",
+      "path": "packs/treasures.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "treasures-armour-shields",
+      "label": "Treasures: Armour and Shields",
+      "package": "ose-content",
+      "path": "packs/treasures-armour-shields.db",
+      "entity": "Item"
+    },
+    {
+      "name": "treasures-miscellaneous-items",
+      "label": "Treasures: Miscellaneous Items",
+      "package": "ose-content",
+      "path": "packs/treasures-miscellaneous-items.db",
+      "entity": "Item"
+    },
+    {
+      "name": "treasures-potions",
+      "label": "Treasures: Potions",
+      "package": "ose-content",
+      "path": "packs/treasures-potions.db",
+      "entity": "Item"
+    },
+    {
+      "name": "treasures-rings",
+      "label": "Treasures: Rings",
+      "package": "ose-content",
+      "path": "packs/treasures-rings.db",
+      "entity": "Item"
+    },
+    {
+      "name": "treasures-rods-staffs-wands",
+      "label": "Treasures: Rods, Staffs, Wands",
+      "package": "ose-content",
+      "path": "packs/treasures-rods-staffs-wands.db",
+      "entity": "Item"
+    },
+    {
+      "name": "treasures-swords",
+      "label": "Treasures: Swords",
+      "package": "ose-content",
+      "path": "packs/treasures-swords.db",
+      "entity": "Item"
+    },
+    {
+      "name": "treasures-weapons",
+      "label": "Treasures: Weapons",
+      "package": "ose-content",
+      "path": "packs/treasures-weapons.db",
+      "entity": "Item"
+    }
+  ],
+  "minimumCoreVersion": "0.6.2",
+  "compatibleCoreVersion": "0.7.9",
+  "url": "https://gitlab.com/puritandesigns/foundry-vtt-ose-for-knave",
+  "manifest": "https://gitlab.com/puritandesigns/foundry-vtt-ose-for-knave/raw/master/module.json",
+  "download": "https://gitlab.com/puritandesigns/foundry-vtt-ose-for-knave/-/raw/master/package/ose-content-v0.1.0.zip"
+}
