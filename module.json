@@ -124,7 +124,7 @@
   ],
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.7.9",
-  "url": "https://gitlab.com/puritandesigns/foundry-vtt-ose-for-knave",
-  "manifest": "https://gitlab.com/puritandesigns/foundry-vtt-ose-for-knave/raw/master/module.json",
-  "download": "https://gitlab.com/puritandesigns/foundry-vtt-ose-for-knave/-/raw/master/package/ose-content-v0.1.0.zip"
+  "url": "https://github.com/puritandesigns/foundry-vtt-ose-for-knave",
+  "manifest": "https://github.com/puritandesigns/foundry-vtt-ose-for-knave/raw/main/module.json",
+  "download": "https://github.com/puritandesigns/foundry-vtt-ose-for-knave/archive/refs/tags/v0.1.1.zip"
 }
