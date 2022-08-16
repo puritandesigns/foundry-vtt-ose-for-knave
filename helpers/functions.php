@@ -1,47 +1,92 @@
 <?php
 
-$monster_text = file_get_contents('packs/monsters.db');
-
-file_put_contents('packs/converted-monsters.db', '');
-
-$first_monster = extractMonster($monster_text);
-
-//echo __FILE__ . ' on line ' . __LINE__;
-//echo '<pre style="background: white; width: 1000px;">' . PHP_EOL;
-//print_r($first_monster['data']);
-//echo PHP_EOL . '</pre>' . PHP_EOL;
-
-
-$converted = convertToKnave($first_monster);
-
-file_put_contents('packs/converted-monsters.db', json_encode($converted));
-
-echo __FILE__ . ' on line ' . __LINE__;
-echo '<pre style="background: white; width: 1000px;">' . PHP_EOL;
-print_r($converted);
-echo PHP_EOL . '</pre>' . PHP_EOL;
-exit;
-
-
-function extractMonster(&$text): array
+/**
+ * @param $text
+ * @return array|bool
+ */
+function extractChunk(&$text, &$errors)
 {
+    $position = strpos($text, "}\n");
+
+    if (false === $position) {
+        return false;
+    }
+
     $extract_length = strpos($text, "}\n") + 1;
 
     $monster_text = substr($text, 0, $extract_length);
 
     $text = substr($text, $extract_length);
 
-    return json_decode($monster_text, true);
+    try {
+        $unjsoned = json_decode($monster_text, true, 512, JSON_THROW_ON_ERROR);
+    } catch (\Throwable $e) {
+        $errors[] = $e->getMessage() . ' on line ' . $e->getLine() .
+            ' of ' . $e->getFile() . " for ==> {$monster_text}";
+
+        return true;
+    }
+
+    return $unjsoned;
 }
 
-function convertToKnave(array $monster): array
+function convertChunkToKnaveContent(
+    array $data,
+    array &$converteds,
+    array &$indexed,
+    $index
+)
+{
+    $converteds[$data['name']] = convertItemToKnave($data);
+    $indexed[$index] = $data['name'];
+}
+
+function convertItemToKnave(array $original_data): array
+{
+    $one_to_one_map = ['_id', 'name', 'img', 'sort', 'flags', 'permission', 'token'];
+
+    $converted = [];
+
+    foreach ($one_to_one_map as $key) {
+        if (isset($original_data[$key])) {
+            $converted[$key] = $original_data[$key];
+        }
+    }
+echo __FILE__ . ' on line ' . __LINE__;
+echo '<pre style="background: white; width: 1000px;">' . PHP_EOL;
+print_r($original_data);
+echo PHP_EOL . '</pre>' . PHP_EOL;
+exit;
+    $descriptions = [];
+    $items = [];
+
+    foreach ($original_data['items'] as $item) {
+        convertItem($item, $descriptions, $items);
+    }
+
+    $converted['items'] = $items;
+
+    $data = convertDataKey($original_data['data'], $original_data);
+
+    if (! empty($descriptions)) {
+        $data['biography'] .= "\n" . implode("\n", $descriptions);
+    }
+
+    $converted['data'] = $data;
+
+    return $converted;
+}
+
+function convertMonsterToKnave(array $monster): array
 {
     $one_to_one_map = ['_id', 'name', 'img', 'sort', 'flags', 'permission', 'token'];
 
     $converted = ['type' => 'character'];
 
     foreach ($one_to_one_map as $key) {
-        $converted[$key] = $monster[$key];
+        if (isset($monster[$key])) {
+            $converted[$key] = $monster[$key];
+        }
     }
 
     $descriptions = [];
@@ -50,7 +95,7 @@ function convertToKnave(array $monster): array
     foreach ($monster['items'] as $item) {
         convertItem($item, $descriptions, $items);
     }
-    
+
     $converted['items'] = $items;
 
     $data = convertDataKey($monster['data'], $monster);
@@ -110,7 +155,7 @@ function convertDataKey(array $data, array $item): array
             "max" => 10
           ]
         ],
-        "movement" => $data['movement']['encounter'],
+        "movement" => $data['movement']['encounter'] ?? 40,
         "morale" => [
           "value" => $data['details']['morale'],
           "max" => 12,
@@ -142,7 +187,7 @@ function convertDataKey(array $data, array $item): array
       "misfortunes" => null
     ]
     ];
-    
+
     // spells?
 
     return $return;
@@ -313,7 +358,7 @@ function convertToKnaveItem(array $item): array
     return $return;
 /*
 
-    
+
 
 
     {

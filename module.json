@@ -10,48 +10,6 @@
   "styles": [],
   "packs": [
     {
-      "name": "converted-monsters",
-      "label": "Monsters (Converted)",
-      "package": "ose-content",
-      "path": "packs/converted-monsters.db",
-      "entity": "Actor"
-    },
-    {
-      "name": "equipment-adventuring-gear",
-      "label": "Equipment: Adventuring Gear",
-      "package": "ose-content",
-      "path": "packs/equipment-adventuring-gear.db",
-      "entity": "Item"
-    },
-    {
-      "name": "equipment-ammunition",
-      "label": "Equipment: Ammunition",
-      "package": "ose-content",
-      "path": "packs/equipment-ammunition.db",
-      "entity": "Item"
-    },
-    {
-      "name": "equipment-armour",
-      "label": "Equipment: Armour",
-      "package": "ose-content",
-      "path": "packs/equipment-armour.db",
-      "entity": "Item"
-    },
-    {
-      "name": "equipment-coins",
-      "label": "Equipment: Coins",
-      "package": "ose-content",
-      "path": "packs/equipment-coins.db",
-      "entity": "Item"
-    },
-    {
-      "name": "equipment-weapons",
-      "label": "Equipment: Weapons",
-      "package": "ose-content",
-      "path": "packs/equipment-weapons.db",
-      "entity": "Item"
-    },
-    {
       "name": "monsters",
       "label": "Monsters",
       "package": "ose-content",
@@ -133,5 +91,5 @@
   "compatibleCoreVersion": "0.7.9",
   "url": "https://github.com/puritandesigns/foundry-vtt-ose-for-knave",
   "manifest": "https://github.com/puritandesigns/foundry-vtt-ose-for-knave/raw/main/module.json",
-  "download": "https://github.com/puritandesigns/foundry-vtt-ose-for-knave/archive/refs/tags/v0.1.3.zip"
+  "download": "https://github.com/puritandesigns/foundry-vtt-ose-for-knave/archive/refs/tags/v0.1.4.zip"
 }
